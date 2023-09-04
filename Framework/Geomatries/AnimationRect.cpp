@@ -8,11 +8,13 @@ AnimationRect::AnimationRect(Vector3 position, Vector3 size)
 	SetShader(ShaderPath + L"Animation.hlsl");
 
 	animator = new Animator();
+	movement = new Movement();
+
 	Texture2D* srcTex = new Texture2D(TexturePath + L"player.png");
 	AnimationClip* RunR = new AnimationClip(L"RunR", srcTex, 10, Values::ZeroVec2, { srcTex->GetWidth(), srcTex->GetHeight() * 0.5f }, 1.f / 15.f);
 	AnimationClip* RunL = new AnimationClip(L"RunL", srcTex, 10, { 0, srcTex->GetHeight() * 0.5f }, { srcTex->GetWidth(), srcTex->GetHeight() }, 1.f / 15.f, true);
 
-	// ¾Ö´Ï¸ÞÀÌ¼Ç ÀúÀå
+	// ì• ë‹ˆë©”ì´ì…˜ ì €ìž¥
 	animator->AddAnimClip(RunR);
 	animator->AddAnimClip(RunL);
 	animator->SetCurrentAnimClip(L"RunL");
@@ -21,7 +23,7 @@ AnimationRect::AnimationRect(Vector3 position, Vector3 size)
 
 	// Sampler
 	{
-		// ¼±Çü º¸°£
+		// ì„ í˜• ë³´ê°„
 		D3D11_SAMPLER_DESC desc;
 		States::GetSamplerDesc(&desc);
 		States::CreateSampler(&desc, &point[0]);
@@ -53,7 +55,7 @@ void AnimationRect::Update()
 
 	MapVertexBuffer();
 	{
-		// uv ÁÂÇ¥·Î ºÃÀ» ¶§ 3¹øÀÌ 0,0ÁöÁ¡
+		// uv ì¢Œí‘œë¡œ ë´¤ì„ ë•Œ 3ë²ˆì´ 0,0ì§€ì 
 		vertices[0].uv.x = animator->GetCurrentFrame().x;
 		vertices[0].uv.y = animator->GetCurrentFrame().y + animator->GetTexelFrameSize().y;
 
@@ -86,6 +88,8 @@ void AnimationRect::Render()
 
 void AnimationRect::Move()
 {
+	movement->Update(position);
+
 	if (Keyboard::Get()->Press('W') && Keyboard::Get()->Press('D'))
 	{
 		position.y += 25 * Time::Delta();
