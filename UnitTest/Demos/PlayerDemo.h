@@ -12,6 +12,8 @@ public:
 
 private:
 	class Player* player = nullptr;
+	class Block* block = nullptr;
+
 	class TextureRect* map = nullptr;
 
 	class HUD* hud = nullptr;

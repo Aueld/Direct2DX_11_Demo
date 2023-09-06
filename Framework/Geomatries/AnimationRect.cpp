@@ -8,8 +8,7 @@ AnimationRect::AnimationRect(Vector3 position, Vector3 size)
 	SetShader(ShaderPath + L"Animation.hlsl");
 
 	animator = new Animator();
-	movement = new Movement();
-
+	
 	Texture2D* srcTex = new Texture2D(TexturePath + L"player.png");
 	AnimationClip* RunR = new AnimationClip(L"RunR", srcTex, 10, Values::ZeroVec2, { srcTex->GetWidth(), srcTex->GetHeight() * 0.5f }, 1.f / 15.f);
 	AnimationClip* RunL = new AnimationClip(L"RunL", srcTex, 10, { 0, srcTex->GetHeight() * 0.5f }, { srcTex->GetWidth(), srcTex->GetHeight() }, 1.f / 15.f, true);
@@ -88,7 +87,7 @@ void AnimationRect::Render()
 
 void AnimationRect::Move()
 {
-	movement->Update(position);
+	//movement->Update(position);
 
 	if (Keyboard::Get()->Press('W') && Keyboard::Get()->Press('D'))
 	{

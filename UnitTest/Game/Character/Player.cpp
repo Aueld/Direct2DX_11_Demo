@@ -6,12 +6,12 @@ Player::Player(Vector3 position, Vector3 size)
 {
 	SetAnimator();
 
-	collision = new BoundingBox(position, size, 0.0f, Color(1, 1, 0, 0.35f));
+	//collision = new BoundingBox(position, size, 0.0f, Color(1, 1, 0, 0.35f));
 }
 
 Player::~Player()
 {
-	SAFE_DELETE(collision);
+	//SAFE_DELETE(collision);
 }
 
 void Player::Update()
@@ -20,19 +20,19 @@ void Player::Update()
 	animator->Update();
 	animRect->Update();
 
-	collision->UpdateCollisionData();
+	//collision->UpdateCollisionData();
 
 	Vector3 size = animRect->GetSize() + Vector3(100, 200, 0);
 	float rotation = animRect->GetRotation();
 	Vector3 position = animRect->GetPosition() + Vector3(100, 45, 0);
 
-	collision->Update(position, size, rotation);
+	//collision->Update(position, size, rotation);
 }
 
 void Player::Render()
 {
 	animRect->Render();
-	collision->Render();
+	//collision->Render();
 
 	Vector3 cameraPos = Vector3(animRect->GetPosition().x - WinMaxWidth / 2, animRect->GetPosition().y - WinMaxHeight / 2, 0.0f);
 	CAMERA->SetPosition(cameraPos);

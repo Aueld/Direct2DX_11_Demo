@@ -47,6 +47,7 @@
     <ClCompile Include="Utilities\Grid.cpp" />
     <ClCompile Include="Game\Unit\Unit.cpp" />
     <ClCompile Include="Game\Unit\Monster\Monster.cpp" />
+    <ClCompile Include="Game\Block\Block.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Systems\Graphics.h" />
@@ -99,5 +100,6 @@
     <ClInclude Include="Utilities\Grid.h" />
     <ClInclude Include="Game\Unit\Unit.h" />
     <ClInclude Include="Game\Unit\Monster\Monster.h" />
+    <ClInclude Include="Game\Block\Block.h" />
   </ItemGroup>
 </Project>

@@ -156,6 +156,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Framework.cpp" />
+    <ClCompile Include="Game\Block\Block.cpp" />
     <ClCompile Include="Game\Unit\Actor\Character.cpp" />
     <ClCompile Include="Game\Components\Movement.cpp" />
     <ClCompile Include="Game\Components\StateComponent.cpp" />
@@ -203,6 +204,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Framework.h" />
+    <ClInclude Include="Game\Block\Block.h" />
     <ClInclude Include="Game\Unit\Actor\Character.h" />
     <ClInclude Include="Game\Components\Movement.h" />
     <ClInclude Include="Game\Components\StateComponent.h" />

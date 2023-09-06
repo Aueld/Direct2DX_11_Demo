@@ -141,15 +141,7 @@ TextureRect::~TextureRect()
 
 void TextureRect::Move()
 {
-	//if (Keyboard::Get()->Press('W'))
-	//	position.y += 100 * Time::Delta();
-	//else if (Keyboard::Get()->Press('S'))
-	//	position.y -= 100 * Time::Delta();
 
-	//if (Keyboard::Get()->Press('D'))
-	//	position.x += 100 * Time::Delta();
-	//else if (Keyboard::Get()->Press('A'))
-	//	position.x -= 100 * Time::Delta();
 }
 
 void TextureRect::MapVertexBuffer()
