@@ -11,6 +11,8 @@ public:
 	void Update();
 	void Render();
 
+	BoundingBox* GetBoundingBox() { return box; }
+
 private:
 	BoundingBox* box = nullptr;
 };

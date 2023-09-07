@@ -2,7 +2,6 @@
 
 #include "Geomatries/AnimationRect.h"
 #include "Utilities/Animator.h"
-#include "Game/Components/Movement.h"
 
 class Unit
 {
@@ -17,9 +16,19 @@ public:
 	virtual void Update() = 0;
 	virtual void Render() = 0;
 
+	void SetPosition(Vector3& position) { this->position = position; animRect->SetPosition(position); }
+
+	BoundingBox* GetBoundingBox() { return box; }
+	Vector3 GetPosition() { return animRect->GetPosition(); }
+	Vector3 GetSize() { return animRect->GetSize(); }
+	float GetRotation() { return animRect->GetRotation(); }
+
 protected:
 	uint HP;
 	uint Attack;
+
+	Vector3 position;
+	Vector3 size;
 
 	BoundingBox* box = nullptr;
 	BoundingBox* plat = nullptr;

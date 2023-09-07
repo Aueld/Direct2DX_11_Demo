@@ -1,5 +1,8 @@
 #pragma once
 
+#include "Game/Unit/Unit.h"
+#include "Game/Block/Block.h"
+
 class PlayerDemo : public IObject
 {
 public:
@@ -11,12 +14,14 @@ public:
 	virtual void GUI() override;
 
 private:
+	class Movement* movement = nullptr;
 	class Player* player = nullptr;
-	class Block* block = nullptr;
+
+	vector<Unit*> units;
+	vector<Block*> blocks;
 
 	class TextureRect* map = nullptr;
 
 	class HUD* hud = nullptr;
 
-	vector<BoundingBox*> walls;
 };

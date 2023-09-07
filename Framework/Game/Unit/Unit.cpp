@@ -2,6 +2,7 @@
 #include "Unit.h"
 
 Unit::Unit(Vector3 position, Vector3 size)
+	:position(position), size(size)
 {
 	animRect = new AnimationRect(position, size);
 	animator = new Animator();
@@ -9,8 +10,8 @@ Unit::Unit(Vector3 position, Vector3 size)
 
 Unit::~Unit()
 {
-	SAFE_DELETE(animRect);
 	SAFE_DELETE(animator);
+	SAFE_DELETE(animRect);
 }
 
 void Unit::SetHp(uint hp)

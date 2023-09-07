@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Game/Unit/Actor/Character.h"
+#include "Game/Unit/Unit.h"
 
-class Player : public Character
+class Player : public Unit
 {
 public:
 	Player(Vector3 position, Vector3 size);
@@ -14,6 +14,6 @@ public:
 	void SetAnimator();
 
 private:
-	//BoundingBox* collision = nullptr;
+	BoundingBox* collision = nullptr;
 	class StateComponent* stateComponent = nullptr;
 };

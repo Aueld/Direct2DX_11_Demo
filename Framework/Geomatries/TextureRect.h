@@ -24,6 +24,7 @@ public:
 	Vector3* GetVerteciesLocalPosition() { return verticesLocalPosition; };
 	const Matrix GetWorld() { return world; }
 
+	void SetPosition(Vector3& position) { this->position = position; }
 	const Vector3 GetPosition() { return position; }
 	const Vector3 GetSize() { return size; }
 	const float GetRotation() { return rotation; }

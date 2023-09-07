@@ -1,7 +1,8 @@
 #include "Framework.h"
 #include "Movement.h"
 
-Movement::Movement()
+Movement::Movement(vector<Unit*> units, vector<Block*> blocks)
+	:units(units), blocks(blocks)
 {
 
 }
@@ -11,10 +12,31 @@ Movement::~Movement()
 
 }
 
-void Movement::Update(Vector3& position)
+void Movement::Update()
 {
-	//float delta = Time::Delta();
-	////speed = gravity * delta * 100.0f;
+	float delta = Time::Delta();
 
-	//position -= Vector3(position.x, speed, position.z);
+	for (auto* unit : units)
+	{
+		for (auto* block : blocks)
+		{
+			if (!BoundingBox::AABB(unit->GetBoundingBox(), block->GetBoundingBox()))
+			{
+				Gravity(unit, delta);
+			}
+		}
+	}
 }
+
+void Movement::Gravity(Unit* unit, float delta)
+{
+	static const Vector2 gravity = Vector2(0.0f, 9.8f);
+
+	Vector3 pos = unit->GetPosition();
+	
+	pos -= Vector3(pos.x, pos.y * gravity * delta * 10.0f, pos.z);
+
+	unit->SetPosition(pos);
+}
+
+// 유닛 단위와 블록 단위로 충돌 관리

@@ -5,14 +5,14 @@ BoundingBox::BoundingBox(Vector3 position, Vector3 size, float rotation, Color c
 	: position(position), size(size), rotation(rotation), color(color)
 {
 	edge = new RectEdge();
-	data = new AxisData();
+	//data = new AxisData();
 
 	Init();
 }
 
 BoundingBox::~BoundingBox()
 {
-	SAFE_DELETE(data);
+	//SAFE_DELETE(data);
 	SAFE_DELETE(edge);
 }
 
