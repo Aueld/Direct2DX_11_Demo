@@ -48,8 +48,12 @@ AnimationRect::~AnimationRect()
 
 }
 
-void AnimationRect::Update()
+void AnimationRect::Update(Vector3 position, Vector3 size, float rotation)
 {
+	this->position = position;
+	this->size = size;
+	this->rotation = rotation;
+
 	animator->Update();
 
 	MapVertexBuffer();
@@ -83,55 +87,4 @@ void AnimationRect::Render()
 
 	//DC->PSSetSamplers(0, 1, &point[0]);
 	//DC->OMSetBlendState(bPoint[0], nullptr, (UINT)0xFFFFFFFF);
-}
-
-void AnimationRect::Move()
-{
-	//movement->Update(position);
-
-	if (Keyboard::Get()->Press('W') && Keyboard::Get()->Press('D'))
-	{
-		position.y += 25 * Time::Delta();
-		position.x += 100 * Time::Delta();
-		animator->SetCurrentAnimClip(L"RunU");
-	}
-	else if (Keyboard::Get()->Press('W') && Keyboard::Get()->Press('A'))
-	{
-		position.y += 25 * Time::Delta();
-		position.x -= 100 * Time::Delta();
-		animator->SetCurrentAnimClip(L"RunU");
-	}
-	else if (Keyboard::Get()->Press('S') && Keyboard::Get()->Press('A'))
-	{
-		position.y -= 25 * Time::Delta();
-		position.x -= 100 * Time::Delta();
-		animator->SetCurrentAnimClip(L"RunD");
-	}
-	else if (Keyboard::Get()->Press('S') && Keyboard::Get()->Press('D'))
-	{
-		position.y -= 25 * Time::Delta();
-		position.x += 100 * Time::Delta();
-		animator->SetCurrentAnimClip(L"RunD");
-	}
-	else if (Keyboard::Get()->Press('A'))
-	{
-		position.x -= 128 * Time::Delta();
-		animator->SetCurrentAnimClip(L"RunL");
-	}
-	else if (Keyboard::Get()->Press('D'))
-	{
-		position.x += 128 * Time::Delta();
-		animator->SetCurrentAnimClip(L"RunR");
-	}
-
-	if (Keyboard::Get()->Press('W'))
-	{
-		position.y += 72 * Time::Delta();
-		animator->SetCurrentAnimClip(L"RunU");
-	}
-	else if (Keyboard::Get()->Press('S'))
-	{
-		position.y -= 72 * Time::Delta();
-		animator->SetCurrentAnimClip(L"RunD");
-	}
 }

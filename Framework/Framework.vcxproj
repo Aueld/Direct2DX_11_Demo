@@ -158,7 +158,6 @@
     <ClCompile Include="Framework.cpp" />
     <ClCompile Include="Game\Block\Block.cpp" />
     <ClCompile Include="Game\Unit\Actor\Character.cpp" />
-    <ClCompile Include="Game\Components\Movement.cpp" />
     <ClCompile Include="Game\Components\StateComponent.cpp" />
     <ClCompile Include="Geomatries\Tile\Tile.cpp" />
     <ClCompile Include="Geomatries\AnimationRect.cpp" />
@@ -206,7 +205,6 @@
     <ClInclude Include="Framework.h" />
     <ClInclude Include="Game\Block\Block.h" />
     <ClInclude Include="Game\Unit\Actor\Character.h" />
-    <ClInclude Include="Game\Components\Movement.h" />
     <ClInclude Include="Game\Components\StateComponent.h" />
     <ClInclude Include="Geomatries\Tile\Tile.h" />
     <ClInclude Include="Geomatries\AnimationRect.h" />

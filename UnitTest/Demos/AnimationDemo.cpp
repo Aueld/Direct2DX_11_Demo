@@ -16,12 +16,12 @@ void AnimationDemo::Destroy()
 
 void AnimationDemo::Update()
 {
-	ar->Update();
+	//ar->Update();
 }
 
 void AnimationDemo::Render()
 {
-	ar->Render();
+	//ar->Render();
 }
 
 void AnimationDemo::PostRender()

@@ -139,11 +139,6 @@ TextureRect::~TextureRect()
 	SAFE_DELETE(wb);
 }
 
-void TextureRect::Move()
-{
-
-}
-
 void TextureRect::MapVertexBuffer()
 {
 	DC->Map(vb->GetResource(), 0, D3D11_MAP_WRITE_DISCARD, 0, &subResource);

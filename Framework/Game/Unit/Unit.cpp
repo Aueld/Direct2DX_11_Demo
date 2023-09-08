@@ -1,8 +1,8 @@
 #include "Framework.h"
 #include "Unit.h"
 
-Unit::Unit(Vector3 position, Vector3 size)
-	:position(position), size(size)
+Unit::Unit(Vector3 position, Vector3 size, float rotation)
+	:position(position), size(size), rotation(rotation)
 {
 	animRect = new AnimationRect(position, size);
 	animator = new Animator();
@@ -21,6 +21,12 @@ void Unit::Attacked(Unit * unit)
 {}
 
 void Unit::Dead()
+{}
+
+void Unit::Move()
+{}
+
+void Unit::UpdatePhysics()
 {}
 
 void Unit::Update()

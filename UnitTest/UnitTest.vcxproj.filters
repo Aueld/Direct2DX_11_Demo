@@ -11,9 +11,9 @@
     <ClInclude Include="Demos\CollisionDemo.h" />
     <ClInclude Include="Demos\AnimationDemo.h" />
     <ClInclude Include="Game\Character\Player.h" />
-    <ClInclude Include="Demos\PlayerDemo.h" />
     <ClInclude Include="Game\UI\HUD.h" />
     <ClInclude Include="Demos\TileMapDemo.h" />
+    <ClInclude Include="Game\GameDemo\PlayerDemo.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Program.cpp" />
@@ -25,8 +25,8 @@
     <ClCompile Include="Demos\CollisionDemo.cpp" />
     <ClCompile Include="Demos\AnimationDemo.cpp" />
     <ClCompile Include="Game\Character\Player.cpp" />
-    <ClCompile Include="Demos\PlayerDemo.cpp" />
     <ClCompile Include="Game\UI\HUD.cpp" />
     <ClCompile Include="Demos\TileMapDemo.cpp" />
+    <ClCompile Include="Game\GameDemo\PlayerDemo.cpp" />
   </ItemGroup>
 </Project>

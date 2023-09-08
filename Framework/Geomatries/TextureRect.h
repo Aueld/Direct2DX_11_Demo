@@ -7,7 +7,7 @@ public:
 	TextureRect(Vector3 position, Vector3 size, float rotation);
 	virtual ~TextureRect();
 
-	virtual void Move();
+	//virtual void Move();
 	
 	void MapVertexBuffer();
 	void UnmapVertexBuffer();

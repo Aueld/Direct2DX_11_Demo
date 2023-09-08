@@ -3,15 +3,7 @@
 
 #include "Systems/Window.h"
 
-#include "Demos/RectDemo.h"
-#include "Demos/TextureDemo.h"
-#include "Demos/ShadedDemo.h"
-#include "Demos/BlurDemo.h"
-#include "Demos/RenderingTargetDemo.h"
-#include "Demos/CollisionDemo.h"
-#include "Demos/AnimationDemo.h"
-#include "Demos/PlayerDemo.h"
-#include "Demos/TileMapDemo.h"
+#include "Game/GameDemo/PlayerDemo.h"
 
 void Program::Init()
 {
@@ -54,15 +46,7 @@ void Program::Init()
 	//	vpb->SetProj(proj);
 	//}
 
-	//Push(new RectDemo);
-	//Push(new TextureDemo);
-	//Push(new ShadedDemo);
-	//Push(new BlurDemo);
-	//Push(new RenderingTargetDemo);
-	//Push(new CollisionDemo);
-	//Push(new AnimationDemo);
 	Push(new PlayerDemo);
-	//Push(new TileMapDemo);
 }
 
 void Program::Destroy()

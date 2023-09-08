@@ -10,10 +10,10 @@ public:
 	AnimationRect(Vector3 position, Vector3 size);
 	~AnimationRect();
 
-	void Update();
+	void Update(Vector3 position, Vector3 size, float rotation);
 	void Render();
 
-	virtual void Move() override;
+	//virtual void Move() override;
 	void SetAnimation(Animator* animator) { this->animator = animator; }
 
 private:

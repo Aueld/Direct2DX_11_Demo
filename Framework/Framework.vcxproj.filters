@@ -36,7 +36,6 @@
     <ClCompile Include="Game\UI\ProgressBar.cpp" />
     <ClCompile Include="Utilities\UI.cpp" />
     <ClCompile Include="Game\UI\Border.cpp" />
-    <ClCompile Include="Game\Components\Movement.cpp" />
     <ClCompile Include="Game\Components\StateComponent.cpp" />
     <ClCompile Include="Geomatries\TileMap.cpp" />
     <ClCompile Include="Geomatries\Tile\Tile.cpp" />
@@ -89,7 +88,6 @@
     <ClInclude Include="Game\UI\ProgressBar.h" />
     <ClInclude Include="Utilities\UI.h" />
     <ClInclude Include="Game\UI\Border.h" />
-    <ClInclude Include="Game\Components\Movement.h" />
     <ClInclude Include="Game\Components\StateComponent.h" />
     <ClInclude Include="Geomatries\TileMap.h" />
     <ClInclude Include="Geomatries\Tile\Tile.h" />
