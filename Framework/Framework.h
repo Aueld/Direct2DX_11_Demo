@@ -125,6 +125,7 @@ typedef UINT		uint;
 
 const wstring ShaderPath = L"../_Shaders/";
 const wstring TexturePath = L"../_Resources/_Textures/";
+const wstring CharacterPath = L"../_Resources/_Textures/_Character/";
 const wstring SoundPath = L"../_Resources/_Sounds/";
 const string  TilePath = "../_Resources/_TileDatas/";
 

@@ -1,8 +1,8 @@
 #include "Framework.h"
 #include "Animator.h"
 
-AnimationClip::AnimationClip(wstring clipName, Texture2D* srcTex, UINT frameCount, Vector2 startPos, Vector2 endPos, float playRate, bool bReversed)
-	:clipName(clipName), frameCount(frameCount), playRate(playRate), bReversed(bReversed)
+AnimationClip::AnimationClip(wstring clipName, Texture2D* srcTex, UINT frameCount, Vector2 startPos, Vector2 endPos, float playRate, bool bLoop, bool bReversed)
+	:clipName(clipName), frameCount(frameCount), playRate(playRate), bLoop(bLoop), bReversed(bReversed)
 {
 	srv = srcTex->GetSRV();
 
@@ -61,7 +61,10 @@ void Animator::Update()
 
 			// 현재 프레임 인덱스가 프레임 수와 같은 경우
 			if (currentFrameIndex == currentClip->frameCount)
-				currentFrameIndex = 0; // 프레임 인덱스를 0으로 설정
+				if (currentClip->bLoop)
+					currentFrameIndex = 0; // 프레임 인덱스를 0으로 설정
+				else
+					currentFrameIndex--;
 
 			// 현재 프레임을 업데이트
 			currentFrame = currentClip->keyFrames[currentFrameIndex];
@@ -72,8 +75,10 @@ void Animator::Update()
 
 			// 현재 프레임 인덱스가 -1인 경우
 			if (currentFrameIndex == -1)
-				// 현재 프레임 인덱스를 프레임 수 - 1 로 설정
-				currentFrameIndex = currentClip->frameCount - 1;
+				if (currentClip->bLoop)
+					currentFrameIndex = currentClip->frameCount - 1; // 현재 프레임 인덱스를 프레임 수 - 1 로 설정
+				else
+					currentFrameIndex++;
 
 			// 현재 프레임을 업데이트
 			currentFrame = currentClip->keyFrames[currentFrameIndex];
@@ -119,6 +124,12 @@ void Animator::SetCurrentAnimClip(wstring clipName)
 }
 
 #pragma region Set Default Clip
+void Animator::SetClip(AnimationClip* clip)
+{
+	defaultClip[Default] = clip;
+	AddAnimClip(clip);
+}
+
 void Animator::SetIdleClip(AnimationClip* clip)
 {
 	defaultClip[IDLE] = clip;
@@ -131,27 +142,27 @@ void Animator::SetAttackClip(AnimationClip* clip)
 	AddAnimClip(clip);
 }
 
-void Animator::SetMoveLClip(AnimationClip* clip)
+void Animator::SetWalkClip(AnimationClip* clip)
 {
-	defaultClip[MOVE_L] = clip;
+	defaultClip[WALK] = clip;
 	AddAnimClip(clip);
 }
 
-void Animator::SetMoveRClip(AnimationClip* clip)
+void Animator::SetRunClip(AnimationClip* clip)
 {
-	defaultClip[MOVE_R] = clip;
+	defaultClip[RUN] = clip;
 	AddAnimClip(clip);
 }
 
-void Animator::SetMoveUClip(AnimationClip* clip)
+void Animator::SetJumpClip(AnimationClip* clip)
 {
-	defaultClip[MOVE_U] = clip;
+	defaultClip[JUMP] = clip;
 	AddAnimClip(clip);
 }
 
-void Animator::SetMoveDClip(AnimationClip* clip)
+void Animator::SetDownClip(AnimationClip* clip)
 {
-	defaultClip[MOVE_D] = clip;
+	defaultClip[DOWN] = clip;
 	AddAnimClip(clip);
 }
 #pragma endregion

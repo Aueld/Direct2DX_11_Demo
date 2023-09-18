@@ -29,6 +29,11 @@ void Unit::Move()
 void Unit::UpdatePhysics()
 {}
 
+vector<Block*> Unit::UpdateSearchBlock(Block* block)
+{
+	return vector<Block*>();
+}
+
 void Unit::Update()
 {}
 

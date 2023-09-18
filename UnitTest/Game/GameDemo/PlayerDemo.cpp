@@ -14,6 +14,14 @@ void PlayerDemo::Init()
 	player = new Player({ 100, 100, 0 }, { 100, 100, 1 }, 0.0f);
 
 	blocks.push_back(new Block({ WinMaxWidth / 2, 0, 0 }, { 2000, 100, 1 }, 0.0f));
+	blocks.push_back(new Block({ WinMaxWidth / 2 + 200, 200, 0 }, { 200, 100, 1 }, 0.0f));
+	blocks.push_back(new Block({ WinMaxWidth / 2 - 200, 200, 0 }, { 200, 100, 1 }, 0.0f));
+
+	for (float i = 25; i <= 200; i += 25)
+	{
+		blocks.push_back(new Block({ WinMaxWidth / 2 - 400 + i, i, 0 }, { 200, 100, 1 }, 0.0f));
+	}
+
 	units.push_back(player);
 
 	//hud = new HUD();
@@ -36,10 +44,10 @@ void PlayerDemo::Update()
 {
 	player->Update();
 
-	for (auto block : blocks)
+	for (Block* block : blocks)
 	{
-		//player->CHECK_AABB(block);
 		block->Update();
+		player->CHECK_AABB(block);
 	}
 
 	//hud->Update();
@@ -59,22 +67,23 @@ void PlayerDemo::Render()
 {
 	player->Render();
 
-	for (auto block : blocks)
+	for (Block* block : blocks)
 		block->Render();
 	//hud->Render();
 }
 
 void PlayerDemo::PostRender()
 {
+	//float time = Time::Delta();
+	//
 	//TXT->BeginDraw();
 	//{
-	//	string str = "Text Å×½ºÆ® ¡Ù¡Ú";
+	//	string str = "t" + to_string(time);
 	//	wstring wstr = String::ToWstring(str);
 	//	float size = (float)TXT->GetStringWidth(wstr, 20.0f);
 	//	Vector2 pos = Vector2(500, 500);
 	//	TXT->RenderText(wstr, pos, Color(1, 1, 1, 1), (float)size, false);
 	//}
-	//
 	//TXT->EndDraw();
 }
 

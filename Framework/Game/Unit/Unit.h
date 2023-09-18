@@ -20,6 +20,8 @@ public:
 	virtual void Move();
 	virtual void UpdatePhysics();
 
+	virtual vector<Block*> UpdateSearchBlock(Block* block);
+
 	void SetPosition(Vector3& position) { this->position = position; }
 	void OnGround(bool gound) { onGround = gound; }
 
@@ -42,12 +44,24 @@ protected:
 	float velocityMax = 20.0f;
 	float speed;
 
+	bool isDash = false;
+
+	bool isJump = false;
+	bool isDoubleJump = false;
 	bool onGround = true;
 
+	bool isColliderRender = true;
+
+	bool isWall = false;
+
+	BoundingBox* searchBox = nullptr;
 	BoundingBox* box = nullptr;
-	BoundingBox* plat = nullptr;
+	BoundingBox* oldPlat = nullptr;
 	BoundingBox* attackRange = nullptr;
 
 	AnimationRect* animRect = nullptr;
 	Animator* animator = nullptr;
+
+	float dTimer = 0.0f;
+	float animationTime = 0.0f;
 };

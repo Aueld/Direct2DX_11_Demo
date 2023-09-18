@@ -5,14 +5,14 @@ BoundingBox::BoundingBox(Vector3 position, Vector3 size, float rotation, Color c
 	: position(position), size(size), rotation(rotation), color(color)
 {
 	edge = new RectEdge();
-	//data = new AxisData();
+	data = new AxisData();
 
 	Init();
 }
 
 BoundingBox::~BoundingBox()
 {
-	//SAFE_DELETE(data);
+	SAFE_DELETE(data);
 	SAFE_DELETE(edge);
 }
 
@@ -109,55 +109,60 @@ void BoundingBox::UpdateCollisionData()
 		}
 	}
 
-	//// OBB
-	//{
-	//	// Center Position Vector Update
-	//	{
-	//		data->centerPos = Vector3
-	//		(
-	//			(edge->LT.x + edge->LB.x + edge->RT.x + edge->RB.x) / 4.f,	// x
-	//			(edge->LT.y + edge->LB.y + edge->RT.y + edge->RB.y) / 4.f,	// y
-	//			0														// z
-	//		);
-	//	}
+	// OBB
+	{
+		// Center Position Vector Update
+		{
+			data->centerPos = Vector3
+			(
+				(edge->LT.x + edge->LB.x + edge->RT.x + edge->RB.x) / 4.f,	// x
+				(edge->LT.y + edge->LB.y + edge->RT.y + edge->RB.y) / 4.f,	// y
+				0														// z
+			);
+		}
 
-	//	// Axis Vector Update
-	//	{
-	//		D3DXVec3TransformNormal(&data->axisDir[x], &Values::RightVec, &world);
-	//		D3DXVec3TransformNormal(&data->axisDir[y], &Values::UpVec, &world);
+		// Axis Vector Update
+		{
+			D3DXVec3TransformNormal(&data->axisDir[x], &Values::RightVec, &world);
+			D3DXVec3TransformNormal(&data->axisDir[y], &Values::UpVec, &world);
 
-	//		D3DXVec3Normalize(&data->axisDir[x], &data->axisDir[x]);
-	//		D3DXVec3Normalize(&data->axisDir[y], &data->axisDir[y]);
-	//	}
+			D3DXVec3Normalize(&data->axisDir[x], &data->axisDir[x]);
+			D3DXVec3Normalize(&data->axisDir[y], &data->axisDir[y]);
+		}
 
-	//	// Axis Length Update
-	//	{
-	//		Vector3 unitAxes[2] = { data->axisDir[x], data->axisDir[y] };
+		// Axis Length Update
+		{
+			Vector3 unitAxes[2] = { data->axisDir[x], data->axisDir[y] };
 
-	//		Vector3 verticesPos[4] = { edge->LT, edge->LB, edge->RT, edge->RB };
-	//		float minValues[2] = { INT_MAX, INT_MAX };
-	//		float maxValues[2] = { INT_MIN, INT_MIN };
+			Vector3 verticesPos[4] = { edge->LT, edge->LB, edge->RT, edge->RB };
+			float minValues[2] = { INT_MAX, INT_MAX };
+			float maxValues[2] = { INT_MIN, INT_MIN };
 
-	//		for (int i = 0; i < 4; ++i)
-	//		{
-	//			Vector3 point = verticesPos[i];
+			for (int i = 0; i < 4; ++i)
+			{
+				Vector3 point = verticesPos[i];
 
-	//			for (int j = 0; j < 2; ++j)
-	//			{
-	//				float projection = D3DXVec3Dot(&point, &unitAxes[j]);
+				for (int j = 0; j < 2; ++j)
+				{
+					float projection = D3DXVec3Dot(&point, &unitAxes[j]);
 
-	//				if (projection < minValues[j])
-	//					minValues[j] = projection;
+					if (projection < minValues[j])
+						minValues[j] = projection;
 
-	//				if (projection > maxValues[j])
-	//					maxValues[j] = projection;
-	//			}
-	//		}
+					if (projection > maxValues[j])
+						maxValues[j] = projection;
+				}
+			}
 
-	//		data->axisLen[x] = (maxValues[x] - minValues[x]) / 2;
-	//		data->axisLen[y] = (maxValues[y] - minValues[y]) / 2;
-	//	}
-	//}
+			data->axisLen[x] = (maxValues[x] - minValues[x]) / 2;
+			data->axisLen[y] = (maxValues[y] - minValues[y]) / 2;
+		}
+	}
+}
+
+void BoundingBox::SetColor(Color& color)
+{
+	this->color = color;
 }
 
 bool BoundingBox::AABB(BoundingBox* a, BoundingBox* b)
@@ -171,7 +176,7 @@ bool BoundingBox::AABB(BoundingBox* a, BoundingBox* b)
 		aEdge.LT.x <= bEdge.RB.x &&
 		aEdge.LT.y >= bEdge.RB.y &&
 		aEdge.RB.y <= bEdge.LT.y)
-		return true;
+			return true;
 
 	return false;
 }

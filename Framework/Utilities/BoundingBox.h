@@ -55,8 +55,10 @@ public:
 	function<void()> GetFuncPtr();
 
 	void UpdateCollisionData();
+	void SetColor(Color& color);
 
 	static bool AABB(BoundingBox* a, BoundingBox* b);
+
 	static bool OBB (BoundingBox* a, BoundingBox* b);
 
 protected:

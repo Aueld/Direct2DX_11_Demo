@@ -11,8 +11,12 @@ public:
 	void Update();
 	void Render();
 
+	void CheckBlock();
+
 	BoundingBox* GetBoundingBox() { return box; }
 
 private:
 	BoundingBox* box = nullptr;
+
+	bool checkBox = false;
 };

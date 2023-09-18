@@ -14,7 +14,6 @@ public:
 	virtual void GUI() override;
 
 private:
-	//class Movement* movement = nullptr;
 	class Player* player = nullptr;
 
 	vector<Unit*> units;

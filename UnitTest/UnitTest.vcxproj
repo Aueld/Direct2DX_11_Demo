@@ -149,14 +149,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Demos\AnimationDemo.h" />
-    <ClInclude Include="Demos\BlurDemo.h" />
-    <ClInclude Include="Demos\CollisionDemo.h" />
-    <ClInclude Include="Demos\RectDemo.h" />
-    <ClInclude Include="Demos\RenderingTargetDemo.h" />
-    <ClInclude Include="Demos\ShadedDemo.h" />
-    <ClInclude Include="Demos\TextureDemo.h" />
-    <ClInclude Include="Demos\TileMapDemo.h" />
     <ClInclude Include="Game\Character\Player.h" />
     <ClInclude Include="Game\GameDemo\PlayerDemo.h" />
     <ClInclude Include="Game\UI\HUD.h" />
@@ -164,14 +156,6 @@
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Demos\AnimationDemo.cpp" />
-    <ClCompile Include="Demos\BlurDemo.cpp" />
-    <ClCompile Include="Demos\CollisionDemo.cpp" />
-    <ClCompile Include="Demos\RectDemo.cpp" />
-    <ClCompile Include="Demos\RenderingTargetDemo.cpp" />
-    <ClCompile Include="Demos\ShadedDemo.cpp" />
-    <ClCompile Include="Demos\TextureDemo.cpp" />
-    <ClCompile Include="Demos\TileMapDemo.cpp" />
     <ClCompile Include="Game\Character\Player.cpp" />
     <ClCompile Include="Game\GameDemo\PlayerDemo.cpp" />
     <ClCompile Include="Game\UI\HUD.cpp" />

@@ -7,18 +7,18 @@ AnimationRect::AnimationRect(Vector3 position, Vector3 size)
 {
 	SetShader(ShaderPath + L"Animation.hlsl");
 
-	animator = new Animator();
-	
-	Texture2D* srcTex = new Texture2D(TexturePath + L"player.png");
-	AnimationClip* RunR = new AnimationClip(L"RunR", srcTex, 10, Values::ZeroVec2, { srcTex->GetWidth(), srcTex->GetHeight() * 0.5f }, 1.f / 15.f);
-	AnimationClip* RunL = new AnimationClip(L"RunL", srcTex, 10, { 0, srcTex->GetHeight() * 0.5f }, { srcTex->GetWidth(), srcTex->GetHeight() }, 1.f / 15.f, true);
+	//animator = new Animator();
+	//
+	//Texture2D* srcTex = new Texture2D(TexturePath + L"player.png");
+	//AnimationClip* RunR = new AnimationClip(L"RunR", srcTex, 10, Values::ZeroVec2, { srcTex->GetWidth(), srcTex->GetHeight() * 0.5f }, 1.f / 15.f);
+	//AnimationClip* RunL = new AnimationClip(L"RunL", srcTex, 10, { 0, srcTex->GetHeight() * 0.5f }, { srcTex->GetWidth(), srcTex->GetHeight() }, 1.f / 15.f, true);
 
-	// 애니메이션 저장
-	animator->AddAnimClip(RunR);
-	animator->AddAnimClip(RunL);
-	animator->SetCurrentAnimClip(L"RunL");
+	//// 애니메이션 저장
+	//animator->AddAnimClip(RunR);
+	//animator->AddAnimClip(RunL);
+	//animator->SetCurrentAnimClip(L"RunL");
 
-	SAFE_DELETE(srcTex);
+	//SAFE_DELETE(srcTex);
 
 	// Sampler
 	{
